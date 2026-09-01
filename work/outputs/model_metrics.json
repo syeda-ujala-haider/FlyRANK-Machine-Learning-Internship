@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "model_version": "w06_validation_audit",
+    "date_created": "2026-08-25",
+    "data_period": "June 2026",
+    "sample_size": 50000
+  },
+  "validation_results": {
+    "precision_at_50_known_clients": 0.17,
+    "precision_at_50_new_clients": 0.04,
+    "precision_at_50_overall": 0.144,
+    "std_dev": 0.064,
+    "confidence_interval_95": [
+      0.08,
+      0.208
+    ],
+    "folds": 5,
+    "split_type": "grouped-by-client (80/20)"
+  },
+  "features": {
+    "total": 5,
+    "used": [
+      "ctr_gap",
+      "log_impressions",
+      "engagement_rate",
+      "time_on_page",
+      "ai_pct"
+    ],
+    "most_important": [
+      "ctr_gap",
+      "log_impressions"
+    ]
+  },
+  "queue_summary": {
+    "total_articles": 50,
+    "refresh_first": 3,
+    "refresh_later": 1,
+    "consider": 10,
+    "skip": 36
+  },
+  "limitations": [
+    "Fails on new clients (Fold 5: 0.040 precision)",
+    "Only 2/5 features predictive",
+    "No refresh history signal",
+    "No client context features",
+    "Correlation not causation"
+  ],
+  "recommendations": [
+    "Use for decision-support only",
+    "Require human review for all articles",
+    "Trust only top 3-5 rankings",
+    "A/B test refresh success before scaling",
+    "Monitor acceptance and success rates",
+    "Retrain quarterly with new data"
+  ]
+}
