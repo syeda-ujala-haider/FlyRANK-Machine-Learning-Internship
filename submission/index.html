@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Refresh ML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        h1 { color: #1a5f7a; border-bottom: 2px solid #1a5f7a; padding-bottom: 10px; }
+        h2 { color: #2a7fa0; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #2a7fa0; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Can Machine Learning Help Editors Prioritize Article Refreshes?</h1>
+        
+        <p><strong>Author:</strong> Syeda Ujala Haider</p>
+        <p><strong>Organization:</strong> FlyRank AI</p>
+        <p><strong>Date:</strong> August 2026</p>
+        
+        <h2>1. Problem Statement</h2>
+        <p>FlyRank editors manage thousands of articles across 50+ clients. Each month, they must decide which articles to refresh (rewrite/update) to maintain search rankings.</p>
+        <p><strong>Challenge:</strong> How to prioritize which articles to refresh without a data-driven system?</p>
+        
+        <h2>2. Research Question</h2>
+        <p><strong>Can machine learning create a ranked queue of high-ROI refresh candidates?</strong></p>
+        
+        <h2>3. Data</h2>
+        <p><strong>Dataset:</strong> FlyRank/internship-warehouse</p>
+        <p><strong>Articles:</strong> 50,000</p>
+        <p><strong>Period:</strong> June 2026</p>
+        <p><strong>Clients:</strong> 50</p>
+        <p><strong>Features:</strong> ctr_gap, log_impressions, engagement_rate, time_on_page, ai_pct</p>
+        
+        <h2>4. Methodology</h2>
+        <p><strong>Baseline:</strong> Hand-written rule = log(impressions) × ctr_gap</p>
+        <p><strong>Models:</strong> Logistic Regression, Random Forest</p>
+        <p><strong>Validation:</strong> 5-Fold GroupKFold (grouped by client)</p>
+        <p><strong>Metric:</strong> Precision@50</p>
+        
+        <h2>5. Results</h2>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Fold 1</th>
+                <th>Fold 2</th>
+                <th>Fold 3</th>
+                <th>Fold 4</th>
+                <th>Fold 5</th>
+                <th>Average</th>
+            </tr>
+            <tr>
+                <td>Baseline</td>
+                <td>0.220</td>
+                <td>0.120</td>
+                <td>0.120</td>
+                <td>0.220</td>
+                <td>0.040</td>
+                <td><strong>0.144</strong></td>
+            </tr>
+            <tr>
+                <td>LogReg</td>
+                <td>0.215</td>
+                <td>0.125</td>
+                <td>0.130</td>
+                <td>0.225</td>
+                <td>0.042</td>
+                <td><strong>0.147</strong></td>
+            </tr>
+        </table>
+        
+        <h2>6. Key Finding</h2>
+        <p>Machine learning adds +0.003 precision (2%) over baseline on known clients, but fails on new clients (0.040 precision).</p>
+        
+        <h2>7. Conclusion</h2>
+        <p><strong>Recommendation:</strong> Deploy baseline heuristic, not ML. Same accuracy, simpler, more interpretable.</p>
+        
+        <h2>8. Reproducibility</h2>
+        <p><strong>Repository:</strong> <a href="https://github.com/syeda-ujala-haider/FlyRANK-Machine-Learning-Internship" target="_blank">github.com/syeda-ujala-haider/FlyRANK-Machine-Learning-Internship</a></p>
+        
+        <h2>9. Acknowledgments</h2>
+        <p>FlyRank AI Internship Program. Mentor: Mirza Ascerix</p>
+    </div>
+</body>
+</html>
